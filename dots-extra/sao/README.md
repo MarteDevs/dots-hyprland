@@ -100,6 +100,7 @@ Por eso:
 | `quickshell/ii/modules/ii/lock/LockSurface.qml` | `Loader` con `SaoLockOverlay` antes de las barras |
 | `quickshell/ii/modules/ii/sessionScreen/SessionScreen.qml` | `SaoUnfold` + `SaoHudFrame`, título y mensaje SAO |
 | `quickshell/ii/modules/ii/sessionScreen/SessionActionButton.qml` | Radio circular si `sao.enable` |
+| `quickshell/ii/modules/ii/mediaControls/MediaControls.qml` | Corrección: el IPC `mediaControls` cambia `GlobalStates.mediaControlsOpen` en vez de `mediaControlsLoader.active` (asignarlo rompía el binding y el panel del reproductor dejaba de abrirse desde la barra) |
 | `starship.toml` | Reemplazado por el prompt SAO |
 
 Archivos nuevos (no generan conflictos): `SaoUnfold.qml`, `SaoHudFrame.qml`,
@@ -115,7 +116,7 @@ git checkout sao-cardinal-theme
 git remote add upstream https://github.com/end-4/dots-hyprland.git
 git fetch upstream
 git merge upstream/main
-#    Si hay conflictos, solo pueden estar en los 5 archivos de la tabla anterior:
+#    Si hay conflictos, solo pueden estar en los 6 archivos de la tabla anterior:
 #    conserva el cambio de end-4 y vuelve a aplicar el bloque SAO descrito.
 
 # 2. Instalar end-4 normalmente

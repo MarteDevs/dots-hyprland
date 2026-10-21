@@ -23,6 +23,7 @@ SHELL_FILES=(
     quickshell/ii/modules/ii/lock/LockSurface.qml
     quickshell/ii/modules/ii/sessionScreen/SessionScreen.qml
     quickshell/ii/modules/ii/sessionScreen/SessionActionButton.qml
+    quickshell/ii/modules/ii/mediaControls/MediaControls.qml
     quickshell/ii/assets/icons/sao-symbolic.svg
     starship.toml
 )
