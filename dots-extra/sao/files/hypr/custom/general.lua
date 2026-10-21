@@ -20,11 +20,11 @@ hl.config({
     },
 })
 
--- Animaciones tipo ventana emergente de SAO: aparece rápido con un pequeño
--- rebote de escala y se cierra encogiéndose.
+-- Animaciones tipo ventana emergente de SAO: nace al 60%, crece con un pequeño
+-- rebote (~450 ms) mientras aparece con fundido, y se cierra encogiéndose.
 hl.curve("saoPop", {
     type = "bezier",
-    points = {{0.22, 1.25}, {0.36, 1}}
+    points = {{0.18, 0.9}, {0.32, 1.18}}
 })
 hl.curve("saoClose", {
     type = "bezier",
@@ -33,9 +33,15 @@ hl.curve("saoClose", {
 hl.animation({
     leaf = "windowsIn",
     enabled = true,
-    speed = 3.2,
+    speed = 4.5,
     bezier = "saoPop",
-    style = "popin 70%"
+    style = "popin 60%"
+})
+hl.animation({
+    leaf = "fadeIn",
+    enabled = true,
+    speed = 3.5,
+    bezier = "saoPop"
 })
 hl.animation({
     leaf = "windowsOut",
