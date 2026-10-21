@@ -1,0 +1,21 @@
+{
+  "sao": {
+    "enable": true,
+    "lock": {
+      "showCharacter": true,
+      "imagesFolder": "",
+      "rotateInterval": 20,
+      "shuffle": true,
+      "backgroundImage": "",
+      "title": "LINK DISCONNECTED",
+      "subtitle": "Cardinal System · sesión en espera"
+    },
+    "session": {
+      "title": "SYSTEM MENU",
+      "message": "¿Qué deseas hacer, jugador?"
+    }
+  },
+  "bar": {
+    "topLeftIcon": "sao"
+  }
+}

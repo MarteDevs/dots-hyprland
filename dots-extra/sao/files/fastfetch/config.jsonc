@@ -1,0 +1,152 @@
+// SAO / Cardinal System — fastfetch
+// Acentos fijos de tono medio (magenta #d61f8f, cian #0097b8): contraste correcto
+// tanto sobre fondo negro como blanco. El texto usa el color por defecto de la
+// terminal y {#2}/{#90} (atenuado/gris), así que se adapta a tema claro y oscuro.
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        // Imagen en texto (bloques/sextantes a color real) generada con chafa:
+        //   ~/.config/fastfetch/tools/make-logo.sh sinon.png sinon.ans
+        // Lo transparente queda sin color, así que se adapta al fondo claro u oscuro.
+        "type": "file-raw",
+        "source": "~/.config/fastfetch/sinon.ans",
+        "width": 46,
+        "height": 24,
+        "padding": {
+            "top": 0,
+            "left": 1,
+            "right": 3
+        }
+    },
+    "display": {
+        "separator": "  ",
+        "key": {
+            "width": 15
+        },
+        "color": {
+            "keys": "38;2;0;151;184",
+            "output": "default"
+        },
+        "percent": {
+            "type": ["bar", "num"],
+            // Verde/ámbar/rojo de tono medio, como la barra de HP de SAO
+            "color": {
+                "green": "38;2;47;168;79",
+                "yellow": "38;2;212;154;0",
+                "red": "38;2;217;59;59"
+            }
+        },
+        "bar": {
+            "width": 14,
+            "char": {
+                "elapsed": "■",
+                "total": "■"
+            },
+            "border": {
+                "left": "",
+                "right": ""
+            },
+            "color": {
+                "total": "90"
+            }
+        }
+    },
+    "modules": [
+        {
+            "type": "custom",
+            "format": "{#38;2;214;31;143}◢◤ {#1}SWORD ART ONLINE{#0}{#38;2;214;31;143} ◥◣  {#2}Cardinal System"
+        },
+        {
+            "type": "custom",
+            "format": "{#90}────────────────────────────────────────────"
+        },
+        {
+            "type": "title",
+            "key": "{#38;2;214;31;143}◆{#38;2;0;151;184} PLAYER",
+            "format": "{#1}{user-name}{#0}{#2} @ {host-name}"
+        },
+        {
+            "type": "os",
+            "key": "{#38;2;214;31;143}◆{#38;2;0;151;184} WORLD",
+            "format": "{pretty-name} {#2}{arch}"
+        },
+        {
+            "type": "kernel",
+            "key": "{#38;2;214;31;143}◆{#38;2;0;151;184} CARDINAL",
+            "format": "{sysname} {release}"
+        },
+        {
+            "type": "host",
+            "key": "{#38;2;214;31;143}◆{#38;2;0;151;184} NERVEGEAR",
+            "format": "{name}"
+        },
+        {
+            "type": "uptime",
+            "key": "{#38;2;214;31;143}◆{#38;2;0;151;184} LINK TIME"
+        },
+        {
+            "type": "custom",
+            "format": "{#90}─ {#38;2;214;31;143}EQUIPMENT {#90}─────────────────────────────"
+        },
+        {
+            "type": "wm",
+            "key": "{#38;2;214;31;143}◇{#38;2;0;151;184} FLOOR",
+            "format": "{pretty-name} {#2}{version}"
+        },
+        {
+            "type": "shell",
+            "key": "{#38;2;214;31;143}◇{#38;2;0;151;184} SKILL",
+            "format": "{pretty-name} {#2}{version}"
+        },
+        {
+            "type": "terminal",
+            "key": "{#38;2;214;31;143}◇{#38;2;0;151;184} WEAPON",
+            "format": "{pretty-name}"
+        },
+        {
+            "type": "packages",
+            "key": "{#38;2;214;31;143}◇{#38;2;0;151;184} ITEMS"
+        },
+        {
+            "type": "custom",
+            "format": "{#90}─ {#38;2;214;31;143}STATUS {#90}────────────────────────────────"
+        },
+        {
+            "type": "cpu",
+            "key": "{#38;2;214;31;143}◇{#38;2;0;151;184} STR",
+            "format": "{name} {#2}{cores-logical}t"
+        },
+        {
+            "type": "gpu",
+            "key": "{#38;2;214;31;143}◇{#38;2;0;151;184} AGI",
+            "format": "{name}"
+        },
+        {
+            // Barra verde/amarilla/roja según uso, como la barra de HP de SAO
+            "type": "memory",
+            "key": "{#38;2;214;31;143}◇{#38;2;0;151;184} HP",
+            "format": "{percentage-bar} {#2}{used} / {total}"
+        },
+        {
+            "type": "disk",
+            "key": "{#38;2;214;31;143}◇{#38;2;0;151;184} INVENTORY",
+            "folders": "/",
+            "format": "{size-percentage-bar} {#2}{size-used} / {size-total}"
+        },
+        {
+            "type": "battery",
+            "key": "{#38;2;214;31;143}◇{#38;2;0;151;184} STAMINA",
+            "format": "{capacity-bar} {#2}{status}"
+        },
+        "break",
+        {
+            // Botones circulares del menú de SAO, (rojo, ámbar, verde, cian, azul, magenta)
+            "type": "custom",
+            "format": "  {#38;2;217;59;59}●  {#38;2;212;154;0}●  {#38;2;47;168;79}●  {#38;2;0;151;184}●  {#38;2;63;90;169}●  {#38;2;214;31;143}●"
+        },
+        {
+            "type": "custom",
+            "format": "{#2}  » Link Start «"
+        }
+    ]
+}

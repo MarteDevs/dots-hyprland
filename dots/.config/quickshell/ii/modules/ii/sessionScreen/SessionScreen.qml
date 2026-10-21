@@ -64,10 +64,31 @@ Scope {
                 }
             }
 
+            // SAO: marco HUD con animación de despliegue (config.json -> sao)
+            readonly property bool sao: Config.options.sao.enable
+            SaoUnfold {
+                id: saoFrame
+                visible: sessionRoot.sao
+                shown: sessionRoot.visible
+                anchors.centerIn: contentColumn
+                width: contentColumn.width + 80
+                height: contentColumn.height + 60
+                SaoHudFrame {
+                    width: saoFrame.width
+                    height: saoFrame.height
+                }
+            }
+
             ColumnLayout { // Content column
                 id: contentColumn
                 anchors.centerIn: parent
                 spacing: 15
+                opacity: sessionRoot.sao ? saoFrame.openProgress : 1
+                transform: Scale {
+                    origin.x: contentColumn.width / 2
+                    origin.y: contentColumn.height / 2
+                    yScale: sessionRoot.sao ? Math.max(0.001, saoFrame.openProgress) : 1
+                }
 
                 Keys.onPressed: event => {
                     if (event.key === Qt.Key_Escape) {
@@ -86,8 +107,21 @@ Scope {
                             family: Appearance.font.family.title
                             pixelSize: Appearance.font.pixelSize.title
                             variableAxes: Appearance.font.variableAxes.title
+                            letterSpacing: sessionRoot.sao ? 3 : 0
                         }
-                        text: Translation.tr("Session")
+                        text: sessionRoot.sao ? `◢  ${Config.options.sao.session.title}  ◣` : Translation.tr("Session")
+                        color: sessionRoot.sao ? "#d61f8f" : Appearance.colors.colOnLayer0
+                    }
+
+                    StyledText {
+                        // SAO: mensaje del sistema
+                        visible: sessionRoot.sao
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.bottomMargin: 4
+                        horizontalAlignment: Text.AlignHCenter
+                        font.pixelSize: Appearance.font.pixelSize.large
+                        color: "#0097b8"
+                        text: Config.options.sao.session.message
                     }
 
                     StyledText {

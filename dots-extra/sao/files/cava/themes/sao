@@ -1,0 +1,9 @@
+# SAO / Cardinal System — degradado cian -> azul -> magenta (tonos medios)
+[color]
+background = default
+gradient = 1
+gradient_color_1 = '#0097b8'
+gradient_color_2 = '#2a7fb4'
+gradient_color_3 = '#3f5aa9'
+gradient_color_4 = '#8a3a9e'
+gradient_color_5 = '#d61f8f'

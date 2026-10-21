@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SAO: espada dentro de un rombo (emblema del menú). Monocromo para colorize. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#000000">
+  <path fill-rule="evenodd" d="M12 0.6 23.4 12 12 23.4 0.6 12Z M12 3.4 3.4 12 12 20.6 20.6 12Z"/>
+  <path d="M12 4.6 13.1 6.2 13.1 13.6 10.9 13.6 10.9 6.2Z"/>
+  <rect x="8.4" y="13.6" width="7.2" height="1.4" rx="0.5"/>
+  <rect x="11.3" y="15" width="1.4" height="2.6"/>
+  <circle cx="12" cy="18.3" r="0.9"/>
+</svg>

@@ -78,6 +78,13 @@ MouseArea {
         forceFieldFocus();
     }
 
+    // SAO: fondo, título y personaje (config.json -> sao)
+    Loader {
+        anchors.fill: parent
+        active: Config.options.sao.enable
+        sourceComponent: SaoLockOverlay {}
+    }
+
     // RippleButton {
     //     anchors {
     //         top: parent.top

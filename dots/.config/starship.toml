@@ -1,103 +1,46 @@
-# Don't print a new line at the start of the prompt
+# SAO / Cardinal System — starship
+# Acentos de tono medio (cian #0097b8, magenta #d61f8f) legibles en tema claro y
+# oscuro; el texto principal usa el color por defecto de la terminal.
+#
+#   ◢ FLOOR ~/proyecto ◇ QUEST main [!+] · LINK TIME 3s
+#   ▸
 add_newline = false
-# Pipes ╰─ ╭─
-# Powerline symbols                                     
-# Wedges 🭧🭒 🭣🭧🭓
-# Random noise 🬖🬥🬔🬗
-# Cool stuff 󰜥   
 
-# format = """
-# $directory $fill $git_branch $cmd_duration
-#  $character"""
 format = """
-$cmd_duration $directory$git_branch
-  $character"""
+[◢](bold fg:#d61f8f) $directory$git_branch$git_state$git_status$cmd_duration
+$character"""
 
-[fill]
-symbol = '-'
-style = 'fg:245'
-
-# Replace the "❯" symbol in the prompt with "➜"
-[character]                            # The name of the module we are configuring is "character"
-success_symbol = "[ ](bold fg:243)"
-error_symbol = "[ ](bold fg:244)"
-
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true
-
-[git_branch]
-style = "bg: 252"
-symbol = "󰘬"
-truncation_length = 12
-truncation_symbol = ""
-format = " 󰜥 [](bold fg:252)[$symbol $branch(:$remote_branch)](fg:235 bg:252)[ ](bold fg:252)"
-
-[git_commit]
-commit_hash_length = 4
-tag_symbol = " "
-
-[git_state]
-format = '[\($state( $progress_current of $progress_total)\)]($style) '
-cherry_pick = "[🍒 PICKING](bold red)"
-
-[git_status]
-conflicted = " 🏳 "
-ahead = " 🏎💨 "
-behind = " 😰 "
-diverged = " 😵 "
-untracked = " 🤷 ‍"
-stashed = " 📦 "
-modified = " 📝 "
-staged = '[++\($count\)](green)'
-renamed = " ✍️ "
-deleted = " 🗑 "
-
-[hostname]
-ssh_only = false
-format =  "[•$hostname](bg:252 bold fg:235)[](bold fg:252)"
-trim_at = ".companyname.com"
-disabled = false
-
-[line_break]
-disabled = false
-
-[memory_usage]
-disabled = true
-threshold = -1
-symbol = " "
-style = "bold dimmed green"
-
-[time]
-disabled = true
-format = '🕙[\[ $time \]]($style) '
-time_format = "%T"
-
-[username]
-style_user = "bold bg:252 fg:235"
-style_root = "red bold"
-format = "[](bold fg:252)[$user]($style)"
-disabled = false
-show_always = true
+[character]
+success_symbol = "[▸](bold fg:#0097b8)"
+error_symbol = "[▸](bold fg:#d93b3b)"     # rojo como el HP bajo
+vimcmd_symbol = "[◂](bold fg:#d61f8f)"
 
 [directory]
-home_symbol = " "
-read_only = "  "
-style = "bg:255 fg:240"
-truncation_length = 2
-truncation_symbol = ".../"
-format = '[](bold fg:255)[󰉋 → $path]($style)[](bold fg:255)'
+style = "bold"
+read_only = " 󰌾"
+read_only_style = "fg:#d93b3b"
+truncation_length = 3
+truncation_symbol = "…/"
+home_symbol = "~"
+format = "[FLOOR ](fg:#0097b8)[$path]($style)[$read_only]($read_only_style) "
 
+[git_branch]
+symbol = ""
+style = "bold"
+truncation_length = 20
+truncation_symbol = "…"
+format = "[◇ QUEST ](fg:#d61f8f)[$branch(:$remote_branch)]($style) "
 
-[directory.substitutions]
-"Desktop" = "  "
-"Documents" = "  "
-"Downloads" = "  "
-"Music" = " 󰎈 "
-"Pictures" = "  "
-"Videos" = "  "
-"GitHub" = " 󰊤 "
+[git_state]
+format = '[\($state( $progress_current/$progress_total)\)](bold fg:#d49a00) '
+
+[git_status]
+style = "bold fg:#d49a00"
+format = '([\[$all_status$ahead_behind\]]($style) )'
 
 [cmd_duration]
-min_time = 0
-format = '[](bold fg:252)[󰪢 $duration](bold bg:252 fg:235)[](bold fg:252)'
+min_time = 2000
+format = "[· LINK TIME ](dimmed)[$duration](bold) "
+
+[package]
+disabled = true

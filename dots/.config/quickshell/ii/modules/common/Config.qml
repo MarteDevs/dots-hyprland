@@ -388,6 +388,26 @@ Singleton {
                 property bool materialShapeChars: true
             }
 
+            // SAO / Cardinal System: bloqueo y menú de sesión
+            property JsonObject sao: JsonObject {
+                property bool enable: true
+                property JsonObject lock: JsonObject {
+                    property bool showCharacter: true
+                    // Carpeta con imágenes del personaje (png/jpg/webp). Vacío = ~/Imágenes/SAO/lock
+                    property string imagesFolder: ""
+                    property int rotateInterval: 20 // segundos entre imágenes (0 = no rotar)
+                    property bool shuffle: true
+                    // Fondo del bloqueo. Vacío = usa el wallpaper actual
+                    property string backgroundImage: ""
+                    property string title: "LINK DISCONNECTED"
+                    property string subtitle: "Cardinal System · sesión en espera"
+                }
+                property JsonObject session: JsonObject {
+                    property string title: "SYSTEM MENU"
+                    property string message: "¿Qué deseas hacer, jugador?"
+                }
+            }
+
             property JsonObject media: JsonObject {
                 // Attempt to remove dupes (the aggregator playerctl one and browsers' native ones when there's plasma browser integration)
                 property bool filterDuplicatePlayers: true

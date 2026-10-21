@@ -11,7 +11,8 @@ RippleButton {
     property bool keyboardDown: false
     property real size: 120
 
-    buttonRadius: (button.focus || button.down) ? size / 2 : Appearance.rounding.verylarge
+    // SAO: botones siempre circulares, como el menú del juego
+    buttonRadius: (Config.options.sao.enable || button.focus || button.down) ? size / 2 : Appearance.rounding.verylarge
     colBackground: button.keyboardDown ? Appearance.colors.colSecondaryContainerActive : 
         button.focus ? Appearance.colors.colPrimary : 
         Appearance.colors.colSecondaryContainer
